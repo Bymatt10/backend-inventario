@@ -11,7 +11,11 @@ import java.util.UUID;
 
 @Service
 public class EmployeeServices {
-  @Autowired private EmployeeRepository employeeRepository;
+  private final EmployeeRepository employeeRepository;
+
+  public EmployeeServices(EmployeeRepository employeeRepository) {
+    this.employeeRepository = employeeRepository;
+  }
 
   public List<EmployeeEntity> gettAllEmployee() {
     return employeeRepository.findAll();
